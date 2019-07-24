@@ -7,7 +7,7 @@ import torch.nn.functional as F
 class Critic(nn.Module):
     """Critic (Action-Value) Model"""
 
-    def __init__(self, state_space_size, action_space_size, seed, fc1_units=400, fc2_units=300):
+    def __init__(self, state_space_size, action_space_size, seed, fc1_units=512, fc2_units=256):
         """Initialize parameters and build model.
         Params
         ======
@@ -32,7 +32,7 @@ class Critic(nn.Module):
     def reset_parameters(self):
         self.fc1.weight.data.uniform_(*hidden_init(self.fc1))
         self.fc2.weight.data.uniform_(*hidden_init(self.fc2))
-        self.fc3.weight.data.uniform_(-4e-4, 4e-4)
+        self.fc3.weight.data.uniform_(-3e-3, 3e-3)
 
     def forward(self, state, action):
         """map (state, action) pairs with Q-values"""
@@ -44,7 +44,7 @@ class Critic(nn.Module):
 class Actor(nn.Module):
     """Actor (Policy Gradient) Model."""
 
-    def __init__(self, state_space_size, action_space_size, seed, fc1_units=400, fc2_units=300):
+    def __init__(self, state_space_size, action_space_size, seed, fc1_units=256, fc2_units=256):
         """Initialize parameters and build model.
         Params
         ======
