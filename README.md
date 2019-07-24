@@ -50,16 +50,19 @@ The training will stop when the agent reach an average of +13 on last 100 scenar
 
 ### Assesing the agent
 
-In a jupyter notebook open play_banana.ipynb and run all cells.<br>
-At the end of 100 trails of 2000 steps each, a report will be shown containing the returns achieved by the agent.
+In a jupyter notebook open Play_reacher.ipynb and run all cells.<br>
+At the end of 1 trails of 1000 steps, a report will be shown containing the returns achieved by the agent.
 <img src="https://github.com/eduardodisanti/drl_banana_collector/blob/master/report/play_scores.png" alt="drawing" width="240"/><br/>
 
 ## Apendices
 
 ### Agent characteristics
 *Please check [Report file](https://github.com/eduardodisanti/drl_banana_collector/blob/master/report/Report.pdf) for a better understanding of the algorithm*
+#### Agent
 #### Algorithm
-The agent uses a  [Deep Q-Learning algorithm](https://storage.googleapis.com/deepmind-media/dqn/DQNNaturePaper.pdf)
+The agent uses an Actor-Critic approach with the Deep Deterministic Policy Gradient
+#### Actor
+#### Critic
 The neural network that estimate the action-value function has following architecture:
 
 |  Layer | Neurons Size  | Type | Activation | Comment |
@@ -84,33 +87,20 @@ Chossen learning rate **5e-4**
     -   Minumin.  : 0.01
     -   Decay rate: 0.995
 
- With the above hyperparameters, the average score of the last 100 episodes reached 13.03 after 321 episodes.
-The agent performed actions acording to this table:
+ With the above hyperparameters, the average score of the last 100 episodes reached 36.74 after 100 episodes.
 
-| Action | Frequency |
-| ------ | --------- |
-| 0 | 57234 |
-| 1 | 25189 |
-| 2 | 9690 |
-| 3 | 4187 |
 <br/>
-And the reward history was:
+And the average reward given for 20 agents over 100 episodes was:
 <table>
 <tr>
-<td><img src="https://github.com/eduardodisanti/drl_banana_collector/blob/master/report/training.png" width="480"/></td>
-<td><img src="https://github.com/eduardodisanti/drl_banana_collector/blob/master/report/training2.png" width="520"/></td>
+<td><img src="https://github.com/eduardodisanti/reacher_2_joint_robotic_arm/blob/master/train_history.png" width="480"/></td>
 <tr>
 </table>
 
 #### Future work
-One behaiviour observed during training and playing, wich is coherent with, the high bias of DQN and the action frequencies shown, is the poor capacity for the agent to turn right, turning left was better learned.<br>
-The agent perform well, but in the future may worth to:
- - increase the number of neurons in the hidden layers
- - Use prioritized experience play
- - Use dueling DQN
 
-#### Running the play_banana
-In the 7th cell the parameters can be adjusted, by default it runs 100 times with 2000 steps.
+#### Running the Play_reacher
+In the 7th cell the parameters can be adjusted, by default it runs 1 time during 1000 timesteps.
 An example of results :
 *Start game...*<br/>
 . . . . <br/>
