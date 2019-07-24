@@ -1,9 +1,10 @@
+# DRAFT DRAFT DRAFT #
 # Reacher
-# reacher_2_joint_robotic_arm
-Trains a two joint robotic arm using Deep Deterministic Policy Gradien (DDPG)
+
+Trains a two joint robotic arm using Deep Deterministic Policy Gradient (DDPG)
 
 <center>
-	<img src="https://github.com/eduardodisanti/deacher_2_joint_robotic_arm/blob/master/media/banana_collector.gif" alt="agent in action" width="480"/>
+	<img src="https://github.com/eduardodisanti/reacher_2_joint_robotic_arm/blob/master/reacher_multi.gif" alt="agent in action" width="480"/>
 </center>
 
 ## Introduction
