@@ -17,15 +17,15 @@ This project trains the agent to play the game using [ray-based](https://en.wiki
 
 |  File | Description | Location |
 |-------|-------------|----------|
-| Navigation.ipynb  | Notebook that trains the model and track progress | / |
-| play_banana.ipynb  | A notebook to see the agent in action and assess it | / |
-| dqn_agent.py  | Defines the DQN agent to solve the environment. | /code |
-| model.py  | Defines the Neural Network that the agents uses to generalize actions. | /code |
-| auxs.py  | Some helper functions like moving average. | /code |
+| Reacher_multi.ipynb  | Notebook that trains the model and track progress | / |
+| Play_reacher_multi.ipynb  | A notebook to see the agent in action and assess it | / |
+| ddpgagent.py  | Defines the DQN agent to solve the environment. | /code |
+| models.py  | Defines the Agent and Critic Neural Networks. | /code |
 | train_agent_headless.py  | Contains code for training the agent that can be run standalone | /code |
 | Report.pdf  | Technical paper and training report | /report |
-| banana_raytracing_eds.pt | Saved weights of the agent neural network | /model
-| banana_play.m4v | A video showing the trained agend | /media
+| actor_chk.pt | Saved weights of the <b>actor</> neural network | /model
+| critic_chk.pt | Saved weights of the <b>critic</b> neural network | /model
+| reacher_play.m4v | A video showing the trained agent | /media
 
 ## Instructions 
 *Refer to "Setting up the environment" section to download the environment for this project in case you don't have the Unity environment installed.*
@@ -33,7 +33,7 @@ This project trains the agent to play the game using [ray-based](https://en.wiki
 ### Training the agent
 
 - Training in a Jupyter notebook (recommended), 
-	Open the Navigation notebook and run all cells <br/>
+	Open the Reacher_multi notebook and run all cells <br/>
 	During the training a graph will be displayed, updated at the end of every episode.<br/>
   <img src="https://github.com/eduardodisanti/drl_banana_collector/blob/master/report/training.png" width="180"/><br/>
 	At the end of the training a final figure with appear showing the rewards, average, moving average and goal<br/>
@@ -46,13 +46,13 @@ This project trains the agent to play the game using [ray-based](https://en.wiki
 	Run the train_agent_headless.py using the command *python train_agent_headless.py*<br/>
 	During the training the progress of the training will be written to the console. <br/>
 
-The training will stop when the agent reach an average of +13 on last 100 scenarios. (Will happen around 330 episodes) 
+The training will stop when the agent reach an average of +30 on last 100 episodes. (Will happen around 70 episodes) 
 
 ### Assesing the agent
 
 In a jupyter notebook open Play_reacher.ipynb and run all cells.<br>
 At the end of 1 trails of 1000 steps, a report will be shown containing the returns achieved by the agent.
-<img src="https://github.com/eduardodisanti/drl_banana_collector/blob/master/report/play_scores.png" alt="drawing" width="240"/><br/>
+<img src="https://github.com/eduardodisanti/reacher_2_joint_robotic_arm/blob/master/report/play_scores.png" alt="drawing" width="240"/><br/>
 
 ## Apendices
 
@@ -60,8 +60,17 @@ At the end of 1 trails of 1000 steps, a report will be shown containing the retu
 *Please check [Report file](https://github.com/eduardodisanti/drl_banana_collector/blob/master/report/Report.pdf) for a better understanding of the algorithm*
 #### Agent
 #### Algorithm
-The agent uses an Actor-Critic approach with the Deep Deterministic Policy Gradient
+The agent uses an Actor-Critic approach with Deep Deterministic Policy Gradient algorithm
 #### Actor
+The neural network that estimate the action-value function for the Actor has following architecture:
+
+|  Layer | Neurons Size  | Type | Activation | Comment |
+|--------|-------|------|------------|---------|
+|Input  |    37 | | | according to the space state dimension | 
+|Hidden 1  |  32 | Linear | ReLU |
+|Hidden 2  |  32 | Linear | ReLU |
+|Output  |  4 | Linear | ReLU | One for each action
+
 #### Critic
 The neural network that estimate the action-value function has following architecture:
 
