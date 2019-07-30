@@ -4,7 +4,7 @@
 Trains a two joint robotic arm using Deep Deterministic Policy Gradient (DDPG)
 
 <center>
-	<img src="https://github.com/eduardodisanti/reacher_2_joint_robotic_arm/blob/master/reacher_multi.gif" alt="agent in action" width="240"/>
+	<img src="https://github.com/eduardodisanti/reacher_2_joint_robotic_arm/blob/master/media/reacher_multi.gif" alt="agent in action" width="240"/>
 </center>
 
 ## Introduction
@@ -35,11 +35,16 @@ This project trains the agent to play the game using [shared experience](http://
 - Training in a Jupyter notebook (recommended), 
 	Open the Reacher_multi notebook and run all cells <br/>
 	During the training a graph will be displayed, updated at the end of every episode.<br/>
-  <img src="https://github.com/eduardodisanti/drl_banana_collector/blob/master/report/training.png" width="180"/><br/>
+  <img src="https://github.com/eduardodisanti/drl_banana_collector/blob/master/report/training2.png" width="180"/><br/>
 	At the end of the training a final figure with appear showing the rewards, average, moving average and goal<br/>
 	<center>
 		<img src="https://github.com/eduardodisanti/drl_banana_collector/blob/master/report/training2.png" alt="training report" width="180"/>
 	</center>
+	Among a numeric report:
+	Episode 100 score mean 39.20949912359938 average on deque 36.73691917886585
+    100 39.20949912359938 30.0 100
+    Environment SOLVED in 100episodes
+    Moving Average = 36.73691917886585 over last 100 episodes
 	
 - Training from the command line,
 	Execute *cd code*<br/>
@@ -110,7 +115,7 @@ With the above hyperparameters, the average score of the last 100 episodes reach
 And the average reward given for 20 agents over 100 episodes was:
 <table>
 <tr>
-<td><img src="https://github.com/eduardodisanti/reacher_2_joint_robotic_arm/media/blob/master/train_history.png" width="480"/></td>
+<td><img src="https://github.com/eduardodisanti/reacher_2_joint_robotic_arm/blob/master/media/reacher_multi.gif" width="480"/></td>
 <tr>
 </table>
 
