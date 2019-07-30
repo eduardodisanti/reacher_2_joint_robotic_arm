@@ -57,7 +57,7 @@ At the end of 1 trails of 1000 steps, a report will be shown containing the retu
 ## Apendices
 
 ### Agent characteristics
-*Please check [Report file](https://github.com/eduardodisanti/drl_banana_collector/blob/master/report/Report.pdf) for a better understanding of the algorithm*
+*Please check [Report file](https://github.com/eduardodisanti/reacher_2_joint_robotic_arm/blob/master/report/Report.pdf) for a better understanding of the algorithm*
 #### Agent
 #### Algorithm
 The agent uses an Actor-Critic approach with Deep Deterministic Policy Gradient algorithm
@@ -110,7 +110,7 @@ With the above hyperparameters, the average score of the last 100 episodes reach
 And the average reward given for 20 agents over 100 episodes was:
 <table>
 <tr>
-<td><img src="https://github.com/eduardodisanti/reacher_2_joint_robotic_arm/blob/master/train_history.png" width="480"/></td>
+<td><img src="https://github.com/eduardodisanti/reacher_2_joint_robotic_arm/media/blob/master/train_history.png" width="480"/></td>
 <tr>
 </table>
 
