@@ -25,7 +25,7 @@ This project trains the agent to play the game using [shared experience](http://
 | Report.pdf  | Technical paper and training report | /report |
 | actor_chk.pt | Saved weights of the <b>actor</> neural network | /model
 | critic_chk.pt | Saved weights of the <b>critic</b> neural network | /model
-| reacher_play.m4v | A video showing the trained agent | /media
+| reacher_multi_video.m4v | A video showing the trained agent | /media
 
 ## Instructions 
 *Refer to "Setting up the environment" section to download the environment for this project in case you don't have the Unity environment installed.*
@@ -40,6 +40,7 @@ This project trains the agent to play the game using [shared experience](http://
 	<center>
 		<img src="https://github.com/eduardodisanti/drl_banana_collector/blob/master/report/training2.png" alt="training report" width="180"/>
 	</center>
+	<br/>
 	Among a numeric report:
 	Episode 100 score mean 39.20949912359938 average on deque 36.73691917886585
     100 39.20949912359938 30.0 100
@@ -74,7 +75,8 @@ The neural network that estimate the action-value function for the Actor has fol
 |Input  |  33 | | | according to the space state dimension | 
 |Hidden 1  |  256 | Linear | ReLU |
 |Hidden 2  |  256 | Linear | ReLU |
-|Output  |  4 | Linear | ReLU | One for each action
+|Output  |  4 | Linear | TanH | One for each action between -1 and 1
+The  optimization algorithm used was **Adam**
 
 #### Critic
 The neural network that estimate the action-value function has following architecture:
@@ -85,9 +87,8 @@ The neural network that estimate the action-value function has following archite
 |Hidden 1  |  512 | Linear | ReLU |
 |Hidden 2  |  256 | Linear | ReLU |
 |Output  |  1 | Linear | ReLU | Action value
-
 The  optimization algorithm used was **Adam**
-Chossen learning rate **5e-4**
+
 ##### Hyperparameters
 -   Discount factor, $\gamma$ 0.99
 -   Soft-update ratio, $\tau$     0.001
@@ -115,7 +116,7 @@ With the above hyperparameters, the average score of the last 100 episodes reach
 And the average reward given for 20 agents over 100 episodes was:
 <table>
 <tr>
-<td><img src="https://github.com/eduardodisanti/reacher_2_joint_robotic_arm/blob/master/media/reacher_multi.gif" width="480"/></td>
+<td><img src="https://github.com/eduardodisanti/drl_banana_collector/blob/master/report/training2.png" width="480"/></td>
 <tr>
 </table>
 
@@ -143,21 +144,12 @@ Total Reward: 14.0<br/>
 
 #### Setting up the environment
 1. Download the environment from one of the links below.  You need only select the environment that matches your operating system:
-    - Linux: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Linux.zip)
-    - Mac OSX: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana.app.zip)
-    - Windows (32-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Windows_x86.zip)
-    - Windows (64-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Windows_x86_64.zip)
+    - Linux: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher_Linux.zip)
+    - Mac OSX: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher.app.zip)
+    - Windows (32-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher_Windows_x86.zip)
+    - Windows (64-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P2/Reacher/Reacher_Windows_x86_64.zip)
     
-    (_For Windows users_) Check out [this link](https://support.microsoft.com/en-us/help/827218/how-to-determine-whether-a-computer-is-running-a-32-bit-version-or-64) if you need help with determining if your computer is running a 32-bit version or 64-bit version of the Windows operating system.
-
-    (_For AWS_) If you'd like to train the agent on AWS (and have not [enabled a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md)), then please use [this link](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Linux_NoVis.zip) to obtain the environment.
-
-You need only select the environment that matches your operating system:
-- Linux: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/VisualBanana_Linux.zip)
-- Mac OSX: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/VisualBanana.app.zip)
-- Windows (32-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/VisualBanana_Windows_x86.zip)
-- Windows (64-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/VisualBanana_Windows_x86_64.zip)
-
-(_For AWS_) If you'd like to train the agent on AWS, you must follow the instructions to [set up X Server](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md), and then download the environment for the **Linux** operating system above.
+    (_For Windows users_) Check out [this link](https://support.microsoft.com/en-us/help/827218/how-to-determine-whether-a-computer-is-running-a-32-bit-version-or-64) if you need help with determining if your computer is running a 32-bit version or 64-bit version of the Windows operating system.<br/>
+    (_For AWS_) If you'd like to train the agent on AWS (and have not [enabled a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md) to obtain the environment.
 
 2. Then, place the files and folders of this repository in the `p2_continuos-control/` folder in the DRLND GitHub repository, you can overwrite any file in conflict.  Next, open `Reacher_multi.ipynb` to train the agent.
