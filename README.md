@@ -4,14 +4,14 @@
 Trains a two joint robotic arm using Deep Deterministic Policy Gradient (DDPG)
 
 <center>
-	<img src="https://github.com/eduardodisanti/reacher_2_joint_robotic_arm/blob/master/reacher_multi.gif" alt="agent in action" width="480"/>
+	<img src="https://github.com/eduardodisanti/reacher_2_joint_robotic_arm/blob/master/reacher_multi.gif" alt="agent in action" width="240"/>
 </center>
 
 ## Introduction
 
 This project shows how to train the reacher multiple environment in the Udacity modified (from Unity's Reacher) environment.
 The goal of the agent is to mantain the ball in the air as much time as possible using a two joint arm.
-This project trains the agent to play the game using [ray-based](https://en.wikipedia.org/wiki/Ray_tracing_(graphics)) perception of objects arround the agent forward direction. Check [Report file](https://github.com/eduardodisanti/drl_banana_collector/blob/master/report/Report.pdf) for technical specifications, algorithm, hyperparameters and architecture of the neural network.
+This project trains the agent to play the game using [shared experience](http://proceedings.mlr.press/v97/iqbal19a/iqbal19a.pdf) perception of objects arround the agent forward direction. Check [Report file](https://github.com/eduardodisanti/drl_banana_collector/blob/master/report/Report.pdf) for technical specifications, algorithm, hyperparameters and architecture of the neural network.
 
 ## Files description
 
@@ -66,9 +66,9 @@ The neural network that estimate the action-value function for the Actor has fol
 
 |  Layer | Neurons Size  | Type | Activation | Comment |
 |--------|-------|------|------------|---------|
-|Input  |    37 | | | according to the space state dimension | 
-|Hidden 1  |  32 | Linear | ReLU |
-|Hidden 2  |  32 | Linear | ReLU |
+|Input  |  33 | | | according to the space state dimension | 
+|Hidden 1  |  256 | Linear | ReLU |
+|Hidden 2  |  256 | Linear | ReLU |
 |Output  |  4 | Linear | ReLU | One for each action
 
 #### Critic
@@ -76,10 +76,10 @@ The neural network that estimate the action-value function has following archite
 
 |  Layer | Neurons Size  | Type | Activation | Comment |
 |--------|-------|------|------------|---------|
-|Input  |    37 | | | according to the space state dimension | 
-|Hidden 1  |  32 | Linear | ReLU |
-|Hidden 2  |  32 | Linear | ReLU |
-|Output  |  4 | Linear | ReLU | One for each action
+|Input  |  33 | | | according to the space state dimension | 
+|Hidden 1  |  512 | Linear | ReLU |
+|Hidden 2  |  256 | Linear | ReLU |
+|Output  |  1 | Linear | ReLU | Action value
 
 The  optimization algorithm used was **Adam**
 Chossen learning rate **5e-4**
@@ -89,14 +89,22 @@ Chossen learning rate **5e-4**
 -   Network update interval
     -  Local every **4** time steps.
     -  Target every **4** time steps.
--   Replay buffer size  **64**
--   Minibatch size **64**
+-   Replay buffer size  **1e6**
+-   Minibatch size **128**
 -   &epsilon; configuration and decay rate for **&epsilon;-greedy policy**
     -   Start          : 1
     -   Minumin.  : 0.01
-    -   Decay rate: 0.995
+    -   Decay rate: 1e-6
+-   Learning rate for ACTOR: 1e-3
+-   Learning rate for CRITIC: 1e-4
+-   L2 weight decay = 0
+-   Learn every: 20 timesteps
+-   Number of learning passes: 10
+-   Ornstein-Uhlenbeck noise parameters
+    -   Sigma noise parameter: 0.2
+    -   Theta noise parameter: 0.15
 
- With the above hyperparameters, the average score of the last 100 episodes reached 36.74 after 100 episodes.
+With the above hyperparameters, the average score of the last 100 episodes reached 36.74 after 100 episodes.
 
 <br/>
 And the average reward given for 20 agents over 100 episodes was:
@@ -125,8 +133,8 @@ Total Reward: 19.0<br/>
 Total Reward: 10.0<br/>
 Total Reward: 14.0<br/>
 . . . . <br/>
-*Game Over*<br/>
-<img src="https://github.com/eduardodisanti/drl_banana_collector/blob/master/report/play_scores.png" alt="drawing" width="480"/><br/>
+*End*<br/>
+<img src="https://github.com/eduardodisanti/reacher_2_joint_robotic_arm/blob/master/train_history.png" width="480"/><br/>
 
 #### Setting up the environment
 1. Download the environment from one of the links below.  You need only select the environment that matches your operating system:
@@ -147,4 +155,4 @@ You need only select the environment that matches your operating system:
 
 (_For AWS_) If you'd like to train the agent on AWS, you must follow the instructions to [set up X Server](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md), and then download the environment for the **Linux** operating system above.
 
-2. Then, place the files and folders of this repository in the `p1_navigation/` folder in the DRLND GitHub repository, you can overwrite any file in conflict.  Next, open `Navigation.ipynb` to train the agent.
+2. Then, place the files and folders of this repository in the `p2_continuos-control/` folder in the DRLND GitHub repository, you can overwrite any file in conflict.  Next, open `Reacher_multi.ipynb` to train the agent.
