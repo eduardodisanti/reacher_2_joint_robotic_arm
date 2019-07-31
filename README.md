@@ -53,16 +53,10 @@ This project trains the agent to play the game using [shared experience](http://
 
 The training will stop when the agent reach an average of +30 on last 100 episodes. (Will happen around 70 episodes) 
 
-### Assesing the agent
-
-In a jupyter notebook open Play_reacher.ipynb and run all cells.<br>
-At the end of 1 trails of 1000 steps, a report will be shown containing the returns achieved by the agent.
-<img src="https://github.com/eduardodisanti/reacher_2_joint_robotic_arm/blob/master/report/play_scores.png" alt="drawing" width="240"/><br/>
-
 ## Apendices
 
 ### Agent characteristics
-*Please check [Report file](https://github.com/eduardodisanti/reacher_2_joint_robotic_arm/blob/master/report/Report.pdf) for a better understanding of the algorithm*
+*Please check [Report file](https://github.com/eduardodisanti/reacher_2_joint_robotic_arm/blob/master/report/Report_Reacher.pdf) for a better understanding of the algorithm*
 #### Agent
 #### Algorithm
 The agent uses an Actor-Critic approach with Deep Deterministic Policy Gradient algorithm
@@ -83,7 +77,7 @@ The neural network that estimate the action-value function has following archite
 |  Layer | Neurons Size  | Type | Activation | Comment |
 |--------|-------|------|------------|---------|
 |Input  |  33 | | | according to the space state dimension | 
-|Hidden 1  |  512 | Linear | ReLU |
+|Hidden 1  |  512 + 4 | Linear | ReLU | plus action vector size
 |Hidden 2  |  256 | Linear | ReLU |
 |Output  |  1 | Linear | ReLU | Action value
 The  optimization algorithm used was **Adam**
