@@ -10,14 +10,15 @@ Trains a two joint robotic arm using Deep Deterministic Policy Gradient (DDPG)
 
 This project shows how to train the reacher multiple environment in the Udacity modified (from Unity's Reacher) environment.
 The goal of the agent is to mantain the ball in the air as much time as possible using a two joint arm.
-This project trains the agent to play the game using [shared experience](http://proceedings.mlr.press/v97/iqbal19a/iqbal19a.pdf) perception of objects arround the agent forward direction. Check [Report file](https://github.com/eduardodisanti/drl_banana_collector/blob/master/report/Report.pdf) for technical specifications, algorithm, hyperparameters and architecture of the neural network.
+This project trains many agents at a time to maintain the a ball on the air, applying torque to the two joints.
+Check [Report file](https://github.com/eduardodisanti/reacher_2_joint_robotic_arm/blob/master/report/Report_Reacher.pdf) for technical specifications, algorithm, hyperparameters and architecture of the neural network.
+A reward is granted when any agent reaches the ball in the correct position and none otherwise.
 
 ## Files description
 
 |  File | Description | Location |
 |-------|-------------|----------|
 | Reacher_multi.ipynb  | Notebook that trains the model and track progress | / |
-| Play_reacher_multi.ipynb  | A notebook to see the agent in action and assess it | / |
 | ddpgagent.py  | Defines the DQN agent to solve the environment. | /code |
 | models.py  | Defines the Agent and Critic Neural Networks. | /code |
 | train_agent_headless.py  | Contains code for training the agent that can be run standalone | /code |
@@ -27,7 +28,7 @@ This project trains the agent to play the game using [shared experience](http://
 | reacher_multi_video.m4v | A video showing the trained agent | /media
 
 ## Instructions 
-*Refer to "Setting up the environment" section to download the environment for this project in case you don't have the Unity environment installed.*
+*Refer to "Setting up the environment" section to download the environment for this project in case you don't have the Unity environment installed.
 
 ### Training the agent
 
