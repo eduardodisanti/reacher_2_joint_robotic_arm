@@ -1,4 +1,3 @@
-# DRAFT DRAFT DRAFT #
 # Reacher
 
 Trains a two joint robotic arm using Deep Deterministic Policy Gradient (DDPG)
@@ -121,26 +120,7 @@ And the average reward given for 20 agents over 100 episodes was:
 </table>
 
 #### Future work
-
-#### Running the Play_reacher
-In the 7th cell the parameters can be adjusted, by default it runs 1 time during 1000 timesteps.
-An example of results :
-*Start game...*<br/>
-. . . . <br/>
-Total Reward: 13.0<br/>
-Total Reward: 11.0<br/>
-Total Reward: 15.0<br/>
-Total Reward: 15.0<br/>
-Total Reward: 20.0<br/>
-Total Reward: 19.0<br/>
-. . . . <br/>
-Total Reward: 18.0<br/>
-Total Reward: 19.0<br/>
-Total Reward: 10.0<br/>
-Total Reward: 14.0<br/>
-. . . . <br/>
-*End*<br/>
-<img src="https://github.com/eduardodisanti/reacher_2_joint_robotic_arm/blob/master/train_history.png" width="480"/><br/>
+Check the possibility to consider the environment solved before, maybe some hyper parameter tuning can allow the agent to converge faster
 
 #### Setting up the environment
 1. Download the environment from one of the links below.  You need only select the environment that matches your operating system:
