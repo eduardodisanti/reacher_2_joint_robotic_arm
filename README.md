@@ -34,10 +34,10 @@ This project trains the agent to play the game using [shared experience](http://
 - Training in a Jupyter notebook (recommended), 
 	Open the Reacher_multi notebook and run all cells <br/>
 	During the training a graph will be displayed, updated at the end of every episode.<br/>
-  <img src="https://github.com/eduardodisanti/drl_banana_collector/blob/master/report/training2.png" width="180"/><br/>
+  <img src="https://github.com/eduardodisanti/reacher_2_joint_robotic_arm/blob/master/report/train_history.png" width="180"/><br/>
 	At the end of the training a final figure with appear showing the rewards, average, moving average and goal<br/>
 	<center>
-		<img src="https://github.com/eduardodisanti/drl_banana_collector/blob/master/report/training2.png" alt="training report" width="180"/>
+		<img src="https://github.com/eduardodisanti/reacher_2_joint_robotic_arm/blob/master/report/train_history.png" alt="training report" width="180"/>
 	</center>
 	<br/>
 	Among a numeric report:
@@ -57,7 +57,7 @@ The training will stop when the agent reach an average of +30 on last 100 episod
 
 ### Agent characteristics
 *Please check [Report file](https://github.com/eduardodisanti/reacher_2_joint_robotic_arm/blob/master/report/Report_Reacher.pdf) for a better understanding of the algorithm*
-#### Agent
+### Agent
 #### Algorithm
 The agent uses an Actor-Critic approach with Deep Deterministic Policy Gradient algorithm
 #### Actor
@@ -109,7 +109,7 @@ With the above hyperparameters, the average score of the last 100 episodes reach
 And the average reward given for 20 agents over 100 episodes was:
 <table>
 <tr>
-<td><img src="https://github.com/eduardodisanti/drl_banana_collector/blob/master/report/training2.png" width="480"/></td>
+<td><img src="https://github.com/eduardodisanti/reacher_2_joint_robotic_arm/blob/master/report/train_history.png" width="480"/></td>
 <tr>
 </table>
 
